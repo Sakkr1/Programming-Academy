@@ -1,0 +1,179 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Backgrounds */
+  --bg:       #0a0a0f;
+  --bg2:      #111118;
+  --bg3:      #1a1a24;
+  --surface:  #16161f;
+
+  /* Borders */
+  --border:        rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.14);
+
+  /* Accents */
+  --accent:      #7c5cfc;
+  --accent2:     #a78bfa;
+  --accent-glow: rgba(124,92,252,0.3);
+  --green:       #22d3a5;
+  --orange:      #f97316;
+
+  /* Text */
+  --text:       #f0eeff;
+  --text-muted: #8b8ba7;
+  --text-dim:   #55556a;
+
+  /* Shape */
+  --radius:    16px;
+  --radius-sm: 10px;
+
+  /* ── Arabic Font Stack ── */
+  --font-display: 'Cairo', sans-serif;
+  --font-body:    'Cairo', sans-serif;
+  --font-mono:    "Cairo", sans-serif;
+
+  /* Transitions */
+  --transition: all 0.25s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Force RTL layout for the entire document */
+  direction: rtl;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  /* Arabic needs slightly more line-height for readability */
+  line-height: 1.75;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  /* Arabic hinting renders better with grayscale */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.t-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: 0;          /* Arabic: never use negative letter-spacing */
+}
+
+.t-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.3;           /* Arabic headings need more room */
+  letter-spacing: 0;
+}
+
+/* Sub-headings — Cairo 600 */
+.t-subheading {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Body text — Tajawal 400 */
+.t-body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* Small text — Tajawal 400 */
+.t-small {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* ──────────────────────────────────────────
+   Shared Section Utilities
+   ────────────────────────────────────────── */
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  /* mono labels stay LTR even in RTL layout */
+  direction: ltr;
+  display: inline-block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.section-sub {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin-top: 14px;
+  line-height: 1.85;
+}
+
+/* ──────────────────────────────────────────
+   Animations
+   ────────────────────────────────────────── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ──────────────────────────────────────────
+   Responsive
+   ────────────────────────────────────────── */
+@media (max-width: 900px) {
+  html { font-size: 15px; }
+}

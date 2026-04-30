@@ -1,0 +1,138 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 130px 24px 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,92,252,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 80% 60%, rgba(34,211,165,0.06) 0%, transparent 50%);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 90%);
+}
+
+.badge,
+.heading,
+.sub,
+.actions,
+.socialProof {
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(124,92,252,0.12);
+  border: 1px solid rgba(124,92,252,0.3);
+  color: var(--accent2);
+  padding: 8px 20px;
+  border-radius: 100px;
+  /* Cairo 600 for badge label */
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  animation: fadeDown 0.6s ease both;
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+.heading {
+  /* Cairo Black (900) for the biggest impact */
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  font-weight: 900;
+  line-height: 1.2;           /* Arabic needs more line-height than Latin */
+  letter-spacing: 0;          /* never negative for Arabic */
+  max-width: 820px;
+}
+
+.sub {
+  /* Tajawal 400 for comfortable reading */
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 28px auto 0;
+  line-height: 1.9;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 44px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.35s ease both;
+}
+
+.socialProof {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 52px;
+  animation: fadeUp 0.7s 0.45s ease both;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Cairo 700 so initials look crisp */
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent2);
+  margin-left: -10px;
+  position: relative;
+}
+.avatar:first-child { margin-left: 0; }
+
+.proofText {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.proofText strong { color: var(--text); }
