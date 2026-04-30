@@ -2,9 +2,15 @@ import React from "react";
 import Button from "../ui/Button";
 import { SOCIAL_PROOF_AVATARS } from "../../data/constants";
 import styles from "./Hero.module.css";
+import { useNavigate } from "react-router-dom";
 
-const Hero: React.FC = () => (
-  <section className={styles.hero}>
+const Hero: React.FC = () => {
+  const navigate = useNavigate()
+  const handleBtn = () => {
+    navigate("/courses");
+  }
+  return(
+    <section className={styles.hero}>
     <div className={styles.bg} />
     <div className={styles.grid} />
 
@@ -24,7 +30,7 @@ const Hero: React.FC = () => (
     </p>
 
     <div className={styles.actions}>
-      <Button variant="hero">استعرض جميع الكورسات ←</Button>
+      <Button onClick={handleBtn} variant="hero">استعرض جميع الكورسات ←</Button>
       <Button variant="hero-ghost">▶ شاهد العرض</Button>
     </div>
 
@@ -46,6 +52,7 @@ const Hero: React.FC = () => (
       </p>
     </div>
   </section>
-);
+  )
+};
 
 export default Hero;

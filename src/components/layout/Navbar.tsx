@@ -4,14 +4,19 @@ import Button from '../ui/Button';
 import useScrolled from '../../hooks/useScrolled';
 import { NAV_LINKS } from '../../data/constants';
 import styles from './Navbar.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const scrolled = useScrolled(40);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
+  const handleHome = () => {
+    navigate("/");
+  }
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <a href="#" className={styles.logo}>
+      <a className={styles.logo} onClick={handleHome}>
         <span className={styles.logoDot} />
         أكاديمية البرمجة
       </a>

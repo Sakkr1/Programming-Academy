@@ -40,4 +40,36 @@ export interface NavLink {
   href: string;
 }
 
+export type BadgeType = "new" | "hot" | "free" | null;
+
+export type Level =
+  | "مبتدئ"
+  | "متوسط"
+  | "متقدم"
+  | "مبتدئ → متقدم"
+  | "مبتدئ → متوسط"
+  | "متوسط → متقدم";
+export type Category =
+  | "برمجة"
+  | "تصميم"
+  | "ذكاء اصطناعي"
+  | "أمن سيبراني"
+  | "قواعد البيانات"
+  | "تطوير ويب";
+
+export interface CourseInfo {
+  id: number;
+  title: string;
+  description: string;
+  category: Category;
+  level: Level;
+  price: number | "free";
+  students: number;
+  hours: number;
+  rating: number;
+  emoji: string;
+  thumbGradient: string;
+  badge: BadgeType;
+}
+
 export type TagVariant = 'default' | 'new' | 'hot' | 'popular' | 'advanced';

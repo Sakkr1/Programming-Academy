@@ -4,9 +4,14 @@ import CourseCard from "./CourseCard";
 import useInView from "../../hooks/useInView";
 import { COURSES } from "../../data/constants";
 import styles from "./Courses.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Courses: React.FC = () => {
   const { ref, inView } = useInView();
+  const navigate = useNavigate()
+  const handleBtn = () => {
+    navigate("/courses");
+  }
 
   return (
     <section className={styles.section} id="courses" ref={ref}>
@@ -23,7 +28,7 @@ const Courses: React.FC = () => {
             تُوظّفك.
           </p>
         </div>
-        <Button variant="ghost">عرض جميع الكورسات ←</Button>
+        <Button variant="ghost" onClick={handleBtn}>عرض جميع الكورسات ←</Button>
       </div>
 
       <div className={styles.grid}>
