@@ -6,6 +6,7 @@ import StatsBar from "./components/sections/StatsBar";
 import "./styles/globals.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CoursesPage from "./components/pages/CoursesPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Courses = React.lazy(() => import("./components/sections/Courses"));
 const AboutUs = React.lazy(() => import("./components/sections/AboutUs"));
@@ -18,7 +19,8 @@ const Pricing = React.lazy(() => import("./components/sections/Pricing"));
 const App: React.FC = () => (
   <>
     <BrowserRouter>
-    <Navbar />
+      <ScrollToTop />
+      <Navbar />
       <main>
         <Routes>
           <Route
